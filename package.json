@@ -1,0 +1,30 @@
+{
+  "name": "asha-s-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "asha-s-portfolio",
+  "author": "AshaWrsame",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.23",
+    "gatsby": "^5.14.6",
+    "gatsby-plugin-image": "^3.15.0",
+    "gatsby-plugin-postcss": "^6.15.0",
+    "gatsby-plugin-sharp": "^5.15.0",
+    "gatsby-source-contentful": "^8.16.0",
+    "gatsby-transformer-sharp": "^5.15.0",
+    "postcss": "^8.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^4.1.18"
+  }
+}
