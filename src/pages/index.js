@@ -7,12 +7,12 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query HomeQuery {
-      contentfulHome {
+      contentfulPage {
         title
-        presentationText {
+        body {
           raw
         }
-        homeImage {
+        image {
           description
           gatsbyImageData(layout: CONSTRAINED, width: 900, placeholder: BLURRED)
         }
@@ -20,17 +20,17 @@ const IndexPage = () => {
     }
   `);
 
- const home = data?.contentfulHome;
-const image = home?.homeImage ? getImage(home.homeImage) : null;
+  const page = data?.contentfulPage ?? null;
+  const image = page?.image ? getImage(page.image) : null;
 
   return (
     <Layout>
       <section className="home">
         <div className="home-content">
-          <h1 className="home-title">{home.title}</h1>
+          <h1 className="home-title">{page?.title}</h1>
 
-          {home.presentationText && (
-            <div className="home-text">{renderRichText(home.presentationText)}</div>
+          {page?.body && (
+            <div className="home-text">{renderRichText(page.body)}</div>
           )}
 
           <Link to="/portfolio" className="home-link">
@@ -40,7 +40,10 @@ const image = home?.homeImage ? getImage(home.homeImage) : null;
 
         {image && (
           <div className="home-image">
-            <GatsbyImage image={image} alt={home.homeImage?.description || home.title} />
+            <GatsbyImage
+              image={image}
+              alt={page?.image?.description || page?.title || "Home image"}
+            />
           </div>
         )}
       </section>

@@ -1,4 +1,5 @@
 const path = require("path");
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -28,16 +29,4 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
-};
-
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
-
-  createTypes(`
-    type ContentfulHome implements Node {
-      title: String
-      presentationText: ContentfulHomePresentationTextRichTextNode
-      homeImage: ContentfulAsset @link
-    }
-  `);
 };
